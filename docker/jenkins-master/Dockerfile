@@ -1,5 +1,7 @@
 FROM jenkins
 
+MAINTAINER Mradul Pandey <mradul.pandey@ingenta.com>
+
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 

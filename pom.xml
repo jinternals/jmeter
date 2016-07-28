@@ -29,10 +29,18 @@
 
     <profiles>
         <profile>
-            <id>local</id>
+            <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
-                <performancetest.webservice.host>localhost</performancetest.webservice.host>
-                <performancetest.webservice.port>8080</performancetest.webservice.port>
+                <performancetest.webservice.host>x-aip-live-05.ingenta.com</performancetest.webservice.host>
+            </properties>
+        </profile>
+        <profile>
+            <id>live</id>
+            <properties>
+                <performancetest.webservice.host>scitation.aip.org</performancetest.webservice.host>
             </properties>
         </profile>
     </profiles>
@@ -55,37 +63,65 @@
                    <testResultsTimestamp>false</testResultsTimestamp>
                    <overrideRootLogLevel>DEBUG</overrideRootLogLevel>
                    <suppressJMeterOutput>false</suppressJMeterOutput>
-                   <postTestPauseInSeconds>1</postTestPauseInSeconds>
+                   <ignoreResultFailures>true</ignoreResultFailures>
+                   <propertiesUser>
+                       <host>${performancetest.webservice.host}</host>
+                   </propertiesUser>
                </configuration>
                <dependencies>
-                   <dependency>
-                       <groupId>kg.apc</groupId>
-                       <artifactId>jmeter-plugins</artifactId>
-                       <version>${kg.apc.version}</version>
-                       <exclusions>
-                           <!--
-                              Unfortunately some transitive dependencies cannot be found on mvncentral
-                              and we have to explicitly exclude them.
-                              For a complete list, see https://github.com/mlex/jmeter-maven-example/
-                          -->
-                           <exclusion>
-                               <groupId>kg.apc</groupId>
-                               <artifactId>perfmon</artifactId>
-                           </exclusion>
-                           <!-- ... -->
+               <dependency>
+                   <groupId>kg.apc</groupId>
+                   <artifactId>jmeter-plugins</artifactId>
+                   <version>1.0.0</version>
+                   <exclusions>
+                       <!--
+                           Unfortunately some transitive dependencies cannot be found on mvncentral
+                           and we have to explicitly exclude them.
+                           For a complete list, see https://github.com/mlex/jmeter-maven-example/
+                       -->
+                       <exclusion>
+                           <groupId>kg.apc</groupId>
+                           <artifactId>perfmon</artifactId>
+                       </exclusion>
+                       <exclusion>
+                           <groupId>org.apache.hadoop</groupId>
+                           <artifactId>hadoop-core</artifactId>
+                       </exclusion>
+                       <exclusion>
+                           <groupId>org.apache.hbase</groupId>
+                           <artifactId>hbase</artifactId>
+                       </exclusion>
 
-                           <!--
-                               Because of a bug in the jmeter-maven-plugin (see
-                               https://github.com/Ronnie76er/jmeter-maven-plugin/issues/77) we have to
-                               exclude jmeter dependencies here, too.
-                           -->
-                           <exclusion>
-                               <groupId>org.apache.jmeter</groupId>
-                               <artifactId>jorphan</artifactId>
-                           </exclusion>
-                           <!-- ... -->
-                       </exclusions>
-                   </dependency>
+                       <!--
+                           These dependencies would override direct JMeter dependencies,
+                           which results in version conflicts (e.g. NoSuchMethodError on jmeter startup
+                       -->
+                       <exclusion>
+                           <groupId>org.apache.jmeter</groupId>
+                           <artifactId>jorphan</artifactId>
+                       </exclusion>
+                       <exclusion>
+                           <groupId>org.apache.bsf</groupId>
+                           <artifactId>bsf-api</artifactId>
+                       </exclusion>
+                       <exclusion>
+                           <groupId>org.bouncycastle</groupId>
+                           <artifactId>bcmail-jdk15</artifactId>
+                       </exclusion>
+                       <exclusion>
+                           <groupId>org.bouncycastle</groupId>
+                           <artifactId>bcprov-jdk15</artifactId>
+                       </exclusion>
+                       <exclusion>
+                           <groupId>javax.activation</groupId>
+                           <artifactId>activation</artifactId>
+                       </exclusion>
+                       <exclusion>
+                           <groupId>commons-logging</groupId>
+                           <artifactId>commons-logging</artifactId>
+                       </exclusion>
+                   </exclusions>
+               </dependency>
                </dependencies>
            </plugin>
 
@@ -120,37 +156,38 @@
                            <goal>create-graph</goal>
                        </goals>
                        <phase>verify</phase>
+                       <configuration>
+                           <inputFile>${project.build.directory}/jmeter/results/demo.jtl</inputFile>
+                           <graphs>
+                               <graph>
+                                   <pluginType>ThreadsStateOverTime</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-ThreadsStateOverTime.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>ResponseTimesOverTime</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesOverTime.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>TransactionsPerSecond</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-TransactionsPerSecond.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>ResponseTimesDistribution</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesDistribution.png</outputFile>
+                               </graph>
+                           </graphs>
+                       </configuration>
                    </execution>
                </executions>
-               <configuration>
-                   <inputFile>${project.build.directory}/jmeter/results/demo.jtl</inputFile>
-                   <graphs>
-                       <graph>
-                           <pluginType>ThreadsStateOverTime</pluginType>
-                           <width>${image.width}</width>
-                           <height>${image.height}</height>
-                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-ThreadsStateOverTime.png</outputFile>
-                       </graph>
-                       <graph>
-                           <pluginType>ResponseTimesOverTime</pluginType>
-                           <width>${image.width}</width>
-                           <height>${image.height}</height>
-                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesOverTime.png</outputFile>
-                       </graph>
-                       <graph>
-                           <pluginType>TransactionsPerSecond</pluginType>
-                           <width>${image.width}</width>
-                           <height>${image.height}</height>
-                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-TransactionsPerSecond.png</outputFile>
-                       </graph>
-                       <graph>
-                           <pluginType>ResponseTimesDistribution</pluginType>
-                           <width>${image.width}</width>
-                           <height>${image.height}</height>
-                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesDistribution.png</outputFile>
-                       </graph>
-                   </graphs>
-               </configuration>
+
            </plugin>
        </plugins>
    </build>

@@ -10,3 +10,5 @@ docker run -p 8080:8080 -p 50000:50000 --name=jenkins-master-container --volumes
 
 #Pull File from container
 docker cp jenkins-data-container:/var/log/jenkins/jenkins.log jenkins.log
+
+docker exec jenkins-master-container cat /var/jenkins_home/secrets/initialAdminPassword
