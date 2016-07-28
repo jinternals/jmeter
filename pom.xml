@@ -35,12 +35,16 @@
             </activation>
             <properties>
                 <performancetest.webservice.host>x-aip-live-05.ingenta.com</performancetest.webservice.host>
+                <performancetest.threadCount>10</performancetest.threadCount>
+                <performancetest.loopCount>2</performancetest.loopCount>
             </properties>
         </profile>
         <profile>
             <id>live</id>
             <properties>
                 <performancetest.webservice.host>scitation.aip.org</performancetest.webservice.host>
+                <performancetest.threadCount>10</performancetest.threadCount>
+                <performancetest.loopCount>2</performancetest.loopCount>
             </properties>
         </profile>
     </profiles>
@@ -66,6 +70,8 @@
                    <ignoreResultFailures>true</ignoreResultFailures>
                    <propertiesUser>
                        <host>${performancetest.webservice.host}</host>
+                       <threadCount>${performancetest.threadCount}</threadCount>
+                       <loopCount>${performancetest.threadCount}</loopCount>
                    </propertiesUser>
                </configuration>
                <dependencies>

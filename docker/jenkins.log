@@ -1,0 +1,87 @@
+Running from: /usr/share/jenkins/jenkins.war
+webroot: EnvVars.masterEnvVars.get("JENKINS_HOME")
+Jul 28, 2016 12:54:58 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: Logging initialized @262ms
+Jul 28, 2016 12:54:58 PM winstone.Logger logInternal
+INFO: Beginning extraction from war file
+Jul 28, 2016 12:54:59 PM org.eclipse.jetty.util.log.JavaUtilLog warn
+WARNING: Empty contextPath
+Jul 28, 2016 12:54:59 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: jetty-9.2.z-SNAPSHOT
+Jul 28, 2016 12:55:00 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+Jul 28, 2016 12:55:00 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: Started w.@60f7cc1d{/,file:/var/jenkins_home/war/,AVAILABLE}{/var/jenkins_home/war}
+Jul 28, 2016 12:55:00 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: Started ServerConnector@7a8fa663{HTTP/1.1}{0.0.0.0:8080}
+Jul 28, 2016 12:55:00 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: Started @2168ms
+Jul 28, 2016 12:55:00 PM winstone.Logger logInternal
+INFO: Winstone Servlet Engine v2.0 running: controlPort=disabled
+Jul 28, 2016 12:55:00 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Jul 28, 2016 12:55:01 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Jul 28, 2016 12:55:01 PM hudson.PluginManager$2$1$1 run
+SEVERE: Failed to install maven-plugin: One or more dependencies could not be resolved for maven-plugin : junit (1.6), javadoc (1.0), mailer (1.7)
+Jul 28, 2016 12:55:01 PM hudson.PluginManager$2$1$1 run
+SEVERE: Failed to install git: One or more dependencies could not be resolved for git : matrix-project (1.6), ssh-credentials (1.11), scm-api (1.0), workflow-scm-step (1.14.2), credentials (1.25), mailer (1.16), git-client (1.19.6)
+Jul 28, 2016 12:55:02 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Jul 28, 2016 12:55:02 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Jul 28, 2016 12:55:02 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Jul 28, 2016 12:55:02 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Jul 28, 2016 12:55:03 PM hudson.model.AsyncPeriodicWork$1 run
+INFO: Started Download metadata
+Jul 28, 2016 12:55:03 PM org.jenkinsci.main.modules.sshd.SSHD start
+INFO: Started SSHD at port 35528
+Jul 28, 2016 12:55:03 PM jenkins.util.groovy.GroovyHookScript execute
+INFO: Executing /var/jenkins_home/init.groovy.d/executors.groovy
+Jul 28, 2016 12:55:03 PM jenkins.util.groovy.GroovyHookScript execute
+INFO: Executing /var/jenkins_home/init.groovy.d/tcp-slave-agent-port.groovy
+Jul 28, 2016 12:55:03 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Jul 28, 2016 12:55:03 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@3d6c9306: display name [Root WebApplicationContext]; startup date [Thu Jul 28 12:55:03 UTC 2016]; root of context hierarchy
+Jul 28, 2016 12:55:03 PM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
+INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@3d6c9306]: org.springframework.beans.factory.support.DefaultListableBeanFactory@414377e9
+Jul 28, 2016 12:55:03 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@414377e9: defining beans [authenticationManager]; root of factory hierarchy
+Jul 28, 2016 12:55:03 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@28af0c23: display name [Root WebApplicationContext]; startup date [Thu Jul 28 12:55:03 UTC 2016]; root of context hierarchy
+Jul 28, 2016 12:55:03 PM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
+INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@28af0c23]: org.springframework.beans.factory.support.DefaultListableBeanFactory@4a933a3
+Jul 28, 2016 12:55:03 PM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4a933a3: defining beans [filter,legacy]; root of factory hierarchy
+Jul 28, 2016 12:55:04 PM jenkins.install.SetupWizard init
+INFO: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+cb2266548fca45b99bf813926dd162ef
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jul 28, 2016 12:55:13 PM hudson.model.UpdateSite updateData
+INFO: Obtained the latest update center data file for UpdateSource default
+Jul 28, 2016 12:55:13 PM hudson.model.UpdateSite updateData
+INFO: Obtained the latest update center data file for UpdateSource default
+--> setting agent port for jnlp
+--> setting agent port for jnlp... done
+Jul 28, 2016 12:55:13 PM hudson.WebAppMain$3 run
+INFO: Jenkins is fully up and running
+Jul 28, 2016 12:55:14 PM hudson.model.DownloadService$Downloadable load
+INFO: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
