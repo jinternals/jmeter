@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mds</groupId>
+    <artifactId>jmeter</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <jmeter.plugin.version>2.0.3</jmeter.plugin.version>
+        <jmeter.analysis.version>1.0.6</jmeter.analysis.version>
+        <jmeter.graph.version>0.1.0</jmeter.graph.version>
+        <kg.apc.version>1.0.0</kg.apc.version>
+        <image.width>800</image.width>
+        <image.height>600</image.height>
+    </properties>
+
+    <developers>
+        <developer>
+            <id>1</id>
+            <email>mradul.pandey@ingenta.com</email>
+            <name>Mradul Pandey</name>
+            <organization>Ingenta</organization>
+            <organizationUrl>http://www.ingenta.com/</organizationUrl>
+        </developer>
+    </developers>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <performancetest.webservice.host>localhost</performancetest.webservice.host>
+                <performancetest.webservice.port>8080</performancetest.webservice.port>
+            </properties>
+        </profile>
+    </profiles>
+
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>com.lazerycode.jmeter</groupId>
+               <artifactId>jmeter-maven-plugin</artifactId>
+               <version>${jmeter.plugin.version}</version>
+               <executions>
+                   <execution>
+                       <id>jmeter-tests</id>
+                       <goals>
+                           <goal>jmeter</goal>
+                       </goals>
+                   </execution>
+               </executions>
+               <configuration>
+                   <testResultsTimestamp>false</testResultsTimestamp>
+                   <overrideRootLogLevel>DEBUG</overrideRootLogLevel>
+                   <suppressJMeterOutput>false</suppressJMeterOutput>
+                   <postTestPauseInSeconds>1</postTestPauseInSeconds>
+               </configuration>
+               <dependencies>
+                   <dependency>
+                       <groupId>kg.apc</groupId>
+                       <artifactId>jmeter-plugins</artifactId>
+                       <version>${kg.apc.version}</version>
+                       <exclusions>
+                           <!--
+                              Unfortunately some transitive dependencies cannot be found on mvncentral
+                              and we have to explicitly exclude them.
+                              For a complete list, see https://github.com/mlex/jmeter-maven-example/
+                          -->
+                           <exclusion>
+                               <groupId>kg.apc</groupId>
+                               <artifactId>perfmon</artifactId>
+                           </exclusion>
+                           <!-- ... -->
+
+                           <!--
+                               Because of a bug in the jmeter-maven-plugin (see
+                               https://github.com/Ronnie76er/jmeter-maven-plugin/issues/77) we have to
+                               exclude jmeter dependencies here, too.
+                           -->
+                           <exclusion>
+                               <groupId>org.apache.jmeter</groupId>
+                               <artifactId>jorphan</artifactId>
+                           </exclusion>
+                           <!-- ... -->
+                       </exclusions>
+                   </dependency>
+               </dependencies>
+           </plugin>
+
+           <plugin>
+               <groupId>com.lazerycode.jmeter</groupId>
+               <artifactId>jmeter-analysis-maven-plugin</artifactId>
+               <version>${jmeter.analysis.version}</version>
+               <configuration>
+                   <source>${project.build.directory}/jmeter/results/demo.jtl</source>
+                   <targetDirectory>${project.build.directory}/jmeter/results/html/</targetDirectory>
+                   <processAllFilesFound>true</processAllFilesFound>
+               </configuration>
+               <executions>
+                   <execution>
+                       <id>create-html-report</id>
+                       <phase>verify</phase>
+                       <goals>
+                           <goal>analyze</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
+
+           <plugin>
+               <groupId>de.codecentric</groupId>
+               <artifactId>jmeter-graph-maven-plugin</artifactId>
+               <version>${jmeter.graph.version}</version>
+               <executions>
+                   <execution>
+                       <id>create-graph-threads</id>
+                       <goals>
+                           <goal>create-graph</goal>
+                       </goals>
+                       <phase>verify</phase>
+                   </execution>
+               </executions>
+               <configuration>
+                   <inputFile>${project.build.directory}/jmeter/results/demo.jtl</inputFile>
+                   <graphs>
+                       <graph>
+                           <pluginType>ThreadsStateOverTime</pluginType>
+                           <width>${image.width}</width>
+                           <height>${image.height}</height>
+                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-ThreadsStateOverTime.png</outputFile>
+                       </graph>
+                       <graph>
+                           <pluginType>ResponseTimesOverTime</pluginType>
+                           <width>${image.width}</width>
+                           <height>${image.height}</height>
+                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesOverTime.png</outputFile>
+                       </graph>
+                       <graph>
+                           <pluginType>TransactionsPerSecond</pluginType>
+                           <width>${image.width}</width>
+                           <height>${image.height}</height>
+                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-TransactionsPerSecond.png</outputFile>
+                       </graph>
+                       <graph>
+                           <pluginType>ResponseTimesDistribution</pluginType>
+                           <width>${image.width}</width>
+                           <height>${image.height}</height>
+                           <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesDistribution.png</outputFile>
+                       </graph>
+                   </graphs>
+               </configuration>
+           </plugin>
+       </plugins>
+   </build>
+
+</project>
