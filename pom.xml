@@ -13,8 +13,8 @@
         <jmeter.analysis.version>1.0.6</jmeter.analysis.version>
         <jmeter.graph.version>0.1.0</jmeter.graph.version>
         <kg.apc.version>1.0.0</kg.apc.version>
-        <image.width>800</image.width>
-        <image.height>600</image.height>
+        <image.width>900</image.width>
+        <image.height>700</image.height>
     </properties>
 
     <developers>
@@ -69,10 +69,6 @@
                    <jMeterProcessJVMSettings>
                        <xms>1024</xms>
                        <xmx>1024</xmx>
-                       <arguments>
-                           <argument>-Xprof</argument>
-                           <argument>-Xfuture</argument>
-                       </arguments>
                    </jMeterProcessJVMSettings>
                    <testResultsTimestamp>false</testResultsTimestamp>
                    <overrideRootLogLevel>info</overrideRootLogLevel>
