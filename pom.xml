@@ -37,6 +37,7 @@
                 <performancetest.webservice.host>x-aip-live-05.ingenta.com</performancetest.webservice.host>
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
+                <performancetest.rampUpTime>2</performancetest.rampUpTime>
             </properties>
         </profile>
         <profile>
@@ -45,6 +46,7 @@
                 <performancetest.webservice.host>scitation.aip.org</performancetest.webservice.host>
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
+                <performancetest.rampUpTime>2</performancetest.rampUpTime>
             </properties>
         </profile>
     </profiles>
@@ -64,14 +66,24 @@
                    </execution>
                </executions>
                <configuration>
+                   <jMeterProcessJVMSettings>
+                       <xms>1024</xms>
+                       <xmx>1024</xmx>
+                       <arguments>
+                           <argument>-Xprof</argument>
+                           <argument>-Xfuture</argument>
+                       </arguments>
+                   </jMeterProcessJVMSettings>
                    <testResultsTimestamp>false</testResultsTimestamp>
-                   <overrideRootLogLevel>DEBUG</overrideRootLogLevel>
+                   <overrideRootLogLevel>info</overrideRootLogLevel>
                    <suppressJMeterOutput>false</suppressJMeterOutput>
                    <ignoreResultFailures>true</ignoreResultFailures>
+
                    <propertiesUser>
                        <host>${performancetest.webservice.host}</host>
                        <threadCount>${performancetest.threadCount}</threadCount>
-                       <loopCount>${performancetest.threadCount}</loopCount>
+                       <loopCount>${performancetest.loopCount}</loopCount>
+                       <rampUpTime>${performancetest.rampUpTime}</rampUpTime>
                    </propertiesUser>
                </configuration>
                <dependencies>
@@ -136,7 +148,7 @@
                <artifactId>jmeter-analysis-maven-plugin</artifactId>
                <version>${jmeter.analysis.version}</version>
                <configuration>
-                   <source>${project.build.directory}/jmeter/results/demo.jtl</source>
+                   <source>${project.build.directory}/jmeter/results/AIP.jtl</source>
                    <targetDirectory>${project.build.directory}/jmeter/results/html/</targetDirectory>
                    <processAllFilesFound>true</processAllFilesFound>
                </configuration>
@@ -163,31 +175,46 @@
                        </goals>
                        <phase>verify</phase>
                        <configuration>
-                           <inputFile>${project.build.directory}/jmeter/results/demo.jtl</inputFile>
+                           <inputFile>${project.build.directory}/jmeter/results/AIP.jtl</inputFile>
                            <graphs>
+                               <graph>
+                                   <pluginType>HitsPerSecond</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-HitsPerSecond.png</outputFile>
+                               </graph>
+
+
+                               <graph>
+                                   <pluginType>BytesThroughputOverTime</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-BytesThroughputOverTime.png</outputFile>
+                               </graph>
+
                                <graph>
                                    <pluginType>ThreadsStateOverTime</pluginType>
                                    <width>${image.width}</width>
                                    <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-ThreadsStateOverTime.png</outputFile>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ThreadsStateOverTime.png</outputFile>
                                </graph>
                                <graph>
                                    <pluginType>ResponseTimesOverTime</pluginType>
                                    <width>${image.width}</width>
                                    <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesOverTime.png</outputFile>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseTimesOverTime.png</outputFile>
                                </graph>
                                <graph>
                                    <pluginType>TransactionsPerSecond</pluginType>
                                    <width>${image.width}</width>
                                    <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-TransactionsPerSecond.png</outputFile>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-TransactionsPerSecond.png</outputFile>
                                </graph>
                                <graph>
                                    <pluginType>ResponseTimesDistribution</pluginType>
                                    <width>${image.width}</width>
                                    <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/demo-ResponseTimesDistribution.png</outputFile>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseTimesDistribution.png</outputFile>
                                </graph>
                            </graphs>
                        </configuration>
