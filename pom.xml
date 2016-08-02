@@ -72,71 +72,25 @@
                    </jMeterProcessJVMSettings>
                    <testResultsTimestamp>false</testResultsTimestamp>
                    <overrideRootLogLevel>info</overrideRootLogLevel>
-                   <suppressJMeterOutput>false</suppressJMeterOutput>
+                   <suppressJMeterOutput>true</suppressJMeterOutput>
                    <ignoreResultFailures>true</ignoreResultFailures>
-
                    <propertiesUser>
                        <host>${performancetest.webservice.host}</host>
                        <threadCount>${performancetest.threadCount}</threadCount>
                        <loopCount>${performancetest.loopCount}</loopCount>
                        <rampUpTime>${performancetest.rampUpTime}</rampUpTime>
                    </propertiesUser>
+                   <propertiesJMeter>
+                       <jmeter.save.saveservice.response_data>true</jmeter.save.saveservice.response_data>
+                       <jmeter.save.saveservice.samplerData>true</jmeter.save.saveservice.samplerData>
+                       <jmeter.save.saveservice.requestHeaders>true</jmeter.save.saveservice.requestHeaders>
+                       <jmeter.save.saveservice.url>true</jmeter.save.saveservice.url>
+                       <jmeter.save.saveservice.responseHeaders>true</jmeter.save.saveservice.responseHeaders>
+                   </propertiesJMeter>
+                   <jmeterExtensions>
+                       <artifact>kg.apc:jmeter-plugins:pom:1.3.1</artifact>
+                   </jmeterExtensions>
                </configuration>
-               <dependencies>
-               <dependency>
-                   <groupId>kg.apc</groupId>
-                   <artifactId>jmeter-plugins</artifactId>
-                   <version>1.0.0</version>
-                   <exclusions>
-                       <!--
-                           Unfortunately some transitive dependencies cannot be found on mvncentral
-                           and we have to explicitly exclude them.
-                           For a complete list, see https://github.com/mlex/jmeter-maven-example/
-                       -->
-                       <exclusion>
-                           <groupId>kg.apc</groupId>
-                           <artifactId>perfmon</artifactId>
-                       </exclusion>
-                       <exclusion>
-                           <groupId>org.apache.hadoop</groupId>
-                           <artifactId>hadoop-core</artifactId>
-                       </exclusion>
-                       <exclusion>
-                           <groupId>org.apache.hbase</groupId>
-                           <artifactId>hbase</artifactId>
-                       </exclusion>
-
-                       <!--
-                           These dependencies would override direct JMeter dependencies,
-                           which results in version conflicts (e.g. NoSuchMethodError on jmeter startup
-                       -->
-                       <exclusion>
-                           <groupId>org.apache.jmeter</groupId>
-                           <artifactId>jorphan</artifactId>
-                       </exclusion>
-                       <exclusion>
-                           <groupId>org.apache.bsf</groupId>
-                           <artifactId>bsf-api</artifactId>
-                       </exclusion>
-                       <exclusion>
-                           <groupId>org.bouncycastle</groupId>
-                           <artifactId>bcmail-jdk15</artifactId>
-                       </exclusion>
-                       <exclusion>
-                           <groupId>org.bouncycastle</groupId>
-                           <artifactId>bcprov-jdk15</artifactId>
-                       </exclusion>
-                       <exclusion>
-                           <groupId>javax.activation</groupId>
-                           <artifactId>activation</artifactId>
-                       </exclusion>
-                       <exclusion>
-                           <groupId>commons-logging</groupId>
-                           <artifactId>commons-logging</artifactId>
-                       </exclusion>
-                   </exclusions>
-               </dependency>
-               </dependencies>
            </plugin>
 
            <plugin>
@@ -179,15 +133,12 @@
                                    <height>${image.height}</height>
                                    <outputFile>${project.build.directory}/jmeter/results/graph/AIP-HitsPerSecond.png</outputFile>
                                </graph>
-
-
                                <graph>
                                    <pluginType>BytesThroughputOverTime</pluginType>
                                    <width>${image.width}</width>
                                    <height>${image.height}</height>
                                    <outputFile>${project.build.directory}/jmeter/results/graph/AIP-BytesThroughputOverTime.png</outputFile>
                                </graph>
-
                                <graph>
                                    <pluginType>ThreadsStateOverTime</pluginType>
                                    <width>${image.width}</width>
@@ -211,6 +162,36 @@
                                    <width>${image.width}</width>
                                    <height>${image.height}</height>
                                    <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseTimesDistribution.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>ResponseCodesPerSecond</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseCodesPerSecond.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>TimesVsThreads</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-TimesVsThreads.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>ResponseTimesPercentiles</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseTimesPercentiles.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>ThroughputVsThreads</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ThroughputVsThreads.png</outputFile>
+                               </graph>
+                               <graph>
+                                   <pluginType>LatenciesOverTime</pluginType>
+                                   <width>${image.width}</width>
+                                   <height>${image.height}</height>
+                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-LatenciesOverTime.png</outputFile>
                                </graph>
                            </graphs>
                        </configuration>
