@@ -34,7 +34,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <performancetest.webservice.host>x-aip-live-05.ingenta.com</performancetest.webservice.host>
+                <performancetest.webservice.host>x-aip-lie-05.ingenta.com</performancetest.webservice.host>
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
                 <performancetest.rampUpTime>2</performancetest.rampUpTime>
@@ -44,6 +44,15 @@
             <id>live</id>
             <properties>
                 <performancetest.webservice.host>scitation.aip.org</performancetest.webservice.host>
+                <performancetest.threadCount>10</performancetest.threadCount>
+                <performancetest.loopCount>2</performancetest.loopCount>
+                <performancetest.rampUpTime>2</performancetest.rampUpTime>
+            </properties>
+        </profile>
+        <profile>
+            <id>fail</id>
+            <properties>
+                <performancetest.webservice.host>wrongurls.com</performancetest.webservice.host>
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
                 <performancetest.rampUpTime>2</performancetest.rampUpTime>
