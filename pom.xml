@@ -80,8 +80,8 @@
                        <xmx>1024</xmx>
                    </jMeterProcessJVMSettings>
                    <testResultsTimestamp>false</testResultsTimestamp>
-                   <overrideRootLogLevel>info</overrideRootLogLevel>
-                   <suppressJMeterOutput>true</suppressJMeterOutput>
+                   <overrideRootLogLevel>debug</overrideRootLogLevel>
+                   <suppressJMeterOutput>false</suppressJMeterOutput>
                    <ignoreResultFailures>true</ignoreResultFailures>
                    <propertiesUser>
                        <host>${performancetest.webservice.host}</host>
