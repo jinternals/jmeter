@@ -237,6 +237,8 @@
           <boolProp name="ResultCollector.success_only_logging">true</boolProp>
         </ResultCollector>
         <hashTree/>
+        <kg.apc.jmeter.reporters.ConsoleStatusLogger guiclass="kg.apc.jmeter.reporters.ConsoleStatusLoggerGui" testclass="kg.apc.jmeter.reporters.ConsoleStatusLogger" testname="jp@gc - Console Status Logger" enabled="true"/>
+        <hashTree/>
       </hashTree>
     </hashTree>
   </hashTree>
