@@ -27,6 +27,12 @@
         </developer>
     </developers>
 
+    <scm>
+        <url>https://github.com/jinternals/jmeter</url>
+        <connection>scm:git:git://github.com:jinternals/jmeter.git</connection>
+        <developerConnection>scm:git:git@github.com:jinternals/jmeter.git</developerConnection>
+    </scm>
+
     <profiles>
         <profile>
             <id>test</id>
@@ -120,10 +126,6 @@
                            <goal>exec</goal>
                        </goals>
                        <configuration>
-                           <successCodes>
-                               <successCode>0</successCode>
-                               <successCode>1</successCode>
-                           </successCodes>
                            <executable>sh</executable>
                            <arguments>
                                <!-- jmeter_runner.sh-->
@@ -139,6 +141,8 @@
                    </execution>
                </executions>
            </plugin>
+
+
 
        </plugins>
    </build>

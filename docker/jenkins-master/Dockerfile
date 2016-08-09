@@ -21,7 +21,7 @@ USER root
 # env
 ENV JMETER_VERSION 3.0
 ENV JMETER_PATH /var/jmeter
-ENV JMETER_BIN /var/jmeter/apache-jmeter-$JMETER_VERSION/bin/
+ENV JMETER_BIN /var/jmeter/apache-jmeter-$JMETER_VERSION/bin
 
 # Install unzip
 RUN apt-get install -y --force-yes unzip
