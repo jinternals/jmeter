@@ -44,7 +44,7 @@
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
                 <performancetest.rampUpTime>2</performancetest.rampUpTime>
-                <performancetest.bin>${env.JMETER_BIN}</performancetest.bin>
+                <performancetest.bin>${env.JMETER_HOME}</performancetest.bin>
             </properties>
         </profile>
         <profile>
@@ -54,7 +54,7 @@
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
                 <performancetest.rampUpTime>2</performancetest.rampUpTime>
-                <performancetest.bin>${env.JMETER_BIN}</performancetest.bin>
+                <performancetest.bin>${env.JMETER_HOME}</performancetest.bin>
             </properties>
         </profile>
         <profile>
@@ -63,7 +63,7 @@
                 <performancetest.webservice.host>x-aip-liv-05.ingenta.com</performancetest.webservice.host>
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
-                <performancetest.bin>${env.JMETER_BIN}</performancetest.bin>
+                <performancetest.bin>${env.JMETER_HOME}</performancetest.bin>
             </properties>
         </profile>
     </profiles>
