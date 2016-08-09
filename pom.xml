@@ -38,6 +38,7 @@
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
                 <performancetest.rampUpTime>2</performancetest.rampUpTime>
+                <performancetest.bin>${env.JMETER_BIN}</performancetest.bin>
             </properties>
         </profile>
         <profile>
@@ -47,6 +48,7 @@
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
                 <performancetest.rampUpTime>2</performancetest.rampUpTime>
+                <performancetest.bin>${env.JMETER_BIN}</performancetest.bin>
             </properties>
         </profile>
         <profile>
@@ -55,7 +57,7 @@
                 <performancetest.webservice.host>x-aip-liv-05.ingenta.com</performancetest.webservice.host>
                 <performancetest.threadCount>10</performancetest.threadCount>
                 <performancetest.loopCount>2</performancetest.loopCount>
-                <performancetest.rampUpTime>2</performancetest.rampUpTime>
+                <performancetest.bin>${env.JMETER_BIN}</performancetest.bin>
             </properties>
         </profile>
     </profiles>
@@ -75,6 +77,7 @@
                    </execution>
                </executions>
                <configuration>
+                   <jmeterDirectory>${performancetest.bin}</jmeterDirectory>
                    <jMeterProcessJVMSettings>
                        <xms>1024</xms>
                        <xmx>1024</xmx>
@@ -83,11 +86,14 @@
                    <overrideRootLogLevel>debug</overrideRootLogLevel>
                    <suppressJMeterOutput>false</suppressJMeterOutput>
                    <ignoreResultFailures>true</ignoreResultFailures>
+                   <resultsFileFormat>CSV</resultsFileFormat>
                    <propertiesUser>
                        <host>${performancetest.webservice.host}</host>
                        <threadCount>${performancetest.threadCount}</threadCount>
                        <loopCount>${performancetest.loopCount}</loopCount>
                        <rampUpTime>${performancetest.rampUpTime}</rampUpTime>
+                       <jmeter.reportgenerator.report_title>AIP JMeter Dashboard</jmeter.reportgenerator.report_title>
+                       <jmeter.save.saveservice.assertion_results_failure_message>true</jmeter.save.saveservice.assertion_results_failure_message>
                    </propertiesUser>
                    <propertiesJMeter>
                        <jmeter.save.saveservice.response_data>true</jmeter.save.saveservice.response_data>
@@ -97,120 +103,43 @@
                        <jmeter.save.saveservice.responseHeaders>true</jmeter.save.saveservice.responseHeaders>
                    </propertiesJMeter>
                    <jmeterExtensions>
-                       <artifact>kg.apc:jmeter-plugins:pom:1.3.1</artifact>
-                       <artifact>kg.apc:jmeter-plugins-standard:1.4.0</artifact>
-                       <artifact>kg.apc:jmeter-plugins-manager:0.10</artifact>
-                       <artifact>kg.apc:jmeter-plugins-cmn-jmeter:0.3</artifact>
+                       <artifact>kg.apc:jmeter-plugins-manager:0.1</artifact>
+                       <artifact>kg.apc:jmeter-plugins-csl:0.1</artifact>
                    </jmeterExtensions>
                </configuration>
            </plugin>
-
            <plugin>
-               <groupId>com.lazerycode.jmeter</groupId>
-               <artifactId>jmeter-analysis-maven-plugin</artifactId>
-               <version>${jmeter.analysis.version}</version>
-               <configuration>
-                   <source>${project.build.directory}/jmeter/results/AIP.jtl</source>
-                   <targetDirectory>${project.build.directory}/jmeter/results/html/</targetDirectory>
-                   <processAllFilesFound>true</processAllFilesFound>
-               </configuration>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>exec-maven-plugin</artifactId>
+               <version>1.5.0</version>
                <executions>
                    <execution>
-                       <id>create-html-report</id>
+                       <id>generate-report-dashboard</id>
                        <phase>verify</phase>
                        <goals>
-                           <goal>analyze</goal>
+                           <goal>exec</goal>
                        </goals>
-                   </execution>
-               </executions>
-           </plugin>
-
-           <plugin>
-               <groupId>de.codecentric</groupId>
-               <artifactId>jmeter-graph-maven-plugin</artifactId>
-               <version>${jmeter.graph.version}</version>
-               <executions>
-                   <execution>
-                       <id>create-graph-threads</id>
-                       <goals>
-                           <goal>create-graph</goal>
-                       </goals>
-                       <phase>verify</phase>
                        <configuration>
-                           <inputFile>${project.build.directory}/jmeter/results/AIP.jtl</inputFile>
-                           <graphs>
-                               <graph>
-                                   <pluginType>HitsPerSecond</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-HitsPerSecond.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>BytesThroughputOverTime</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-BytesThroughputOverTime.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>ThreadsStateOverTime</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ThreadsStateOverTime.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>ResponseTimesOverTime</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseTimesOverTime.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>TransactionsPerSecond</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-TransactionsPerSecond.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>ResponseTimesDistribution</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseTimesDistribution.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>ResponseCodesPerSecond</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseCodesPerSecond.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>TimesVsThreads</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-TimesVsThreads.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>ResponseTimesPercentiles</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ResponseTimesPercentiles.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>ThroughputVsThreads</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-ThroughputVsThreads.png</outputFile>
-                               </graph>
-                               <graph>
-                                   <pluginType>LatenciesOverTime</pluginType>
-                                   <width>${image.width}</width>
-                                   <height>${image.height}</height>
-                                   <outputFile>${project.build.directory}/jmeter/results/graph/AIP-LatenciesOverTime.png</outputFile>
-                               </graph>
-                           </graphs>
+                           <successCodes>
+                               <successCode>0</successCode>
+                               <successCode>1</successCode>
+                           </successCodes>
+                           <executable>sh</executable>
+                           <arguments>
+                               <!-- jmeter_runner.sh-->
+                               <argument>${project.basedir}/src/test/jmeter/script/jmeter_dashboard_runner.sh</argument>
+                               <!-- JMETER_BIN in docker setup -->
+                               <argument>${performancetest.bin}</argument>
+                               <!-- RESULT CSV -->
+                               <argument>${project.build.directory}/jmeter/results/AIP.jtl</argument>
+                               <!-- DASHBOARD PATH -->
+                               <argument>${project.build.directory}/jmeter/results/AIP/Dashboard/</argument>
+                           </arguments>
                        </configuration>
                    </execution>
                </executions>
-
            </plugin>
+
        </plugins>
    </build>
 
