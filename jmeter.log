@@ -1,65 +1,65 @@
-2016/08/09 14:05:53 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Loading user properties from: /Users/mradul/Downloads/apache-jmeter-3.0/bin/user.properties 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Loading system properties from: /Users/mradul/Downloads/apache-jmeter-3.0/bin/system.properties 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Version 3.0 r1743807 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: java.version=1.8.0_66 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: os.name=Mac OS X 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: os.arch=x86_64 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: os.version=10.11.6 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: file.encoding=UTF-8 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Max memory     =514850816 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Available Processors =8 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Default Locale=English (United States) 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: JMeterHome=/Users/mradul/Downloads/apache-jmeter-3.0 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: user.dir  =/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: PWD       =/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: IP: 192.168.20.145 Name: mradulpandeys-MacBook-Pro-2.local FullName: 192.168.20.145 
-2016/08/09 14:05:53 INFO  - jmeter.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP/Dashboard' 
-2016/08/09 14:05:53 INFO  - jmeter.report.dashboard.ReportGenerator: ReportGenerator will use for Parsing the separator:',' 
-2016/08/09 14:05:53 INFO  - jmeter.report.dashboard.ReportGenerator: Will only generate report from results file:/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP.jtl 
-2016/08/09 14:05:53 INFO  - jmeter.report.dashboard.ReportGenerator: Reading report generator properties from:/Users/mradul/Downloads/apache-jmeter-3.0/bin/reportgenerator.properties 
-2016/08/09 14:05:53 INFO  - jmeter.report.dashboard.ReportGenerator: Merging with JMeter properties 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.temp_dir" not found, using default value "temp" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.apdex_satisfied_threshold" not found, using default value "500" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.apdex_tolerated_threshold" not found, using default value "1500" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.sample_filter" not found, using default value "null" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimePercentiles.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimesOverTime.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.bytesThroughputOverTime.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.activeThreadsOverTime.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.timeVsThreads.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimeDistribution.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.latenciesOverTime.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.transactionsPerSecond.exclude_controllers" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.filters_only_sample_series" not found, using default value "true" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.series_filter" not found, using default value "" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.show_controllers_only" not found, using default value "false" instead. 
-2016/08/09 14:05:53 INFO  - jmeter.report.processor.NormalizerSampleConsumer: Using format:ms to parse timeStamp field 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): beginDate produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): endDate produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ApdexSummaryConsumer#stopProducing(): apdexSummary produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.RequestsSummaryConsumer#stopProducing(): requestsSummary produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.StatisticsSummaryConsumer#stopProducing(): statisticsSummary produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ErrorsSummaryConsumer#stopProducing(): errorsSummary produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer#stopProducing(): latencyVsRequest produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer#stopProducing(): hitsPerSecond produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer#stopProducing(): codesPerSecond produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer#stopProducing(): responseTimeVsRequest produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): startIntervalControlerFilter produced 50 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer#stopProducing(): responseTimePercentiles produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer#stopProducing(): responseTimesOverTime produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer#stopProducing(): bytesThroughputOverTime produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer#stopProducing(): activeThreadsOverTime produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer#stopProducing(): timeVsThreads produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer#stopProducing(): responseTimeDistribution produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer#stopProducing(): latenciesOverTime produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer#stopProducing(): transactionsPerSecond produced 0 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): nameFilter produced 120 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.NormalizerSampleConsumer#stopProducing(): normalizer produced 30 samples 
-2016/08/09 14:05:53 INFO  - org.apache.jmeter.report.processor.CsvFileSampleSource: produce(): 10 samples produced in 95ms on channel 0 
-2016/08/09 14:05:53 INFO  - jmeter.report.dashboard.ReportGenerator: Exporting data using exporter:'html' of className:'org.apache.jmeter.report.dashboard.HtmlTemplateExporter' 
-2016/08/09 14:05:53 INFO  - jmeter.report.dashboard.HtmlTemplateExporter: Will generate dashboard in folder:/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP/Dashboard 
-2016/08/09 14:05:53 INFO  - jmeter.report.dashboard.HtmlTemplateExporter: Report will be generated in:/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP/Dashboard, creating folder structure 
+2016/08/11 17:39:25 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_US 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Loading user properties from: /Users/mradul/Downloads/apache-jmeter-3.0/bin/user.properties 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Loading system properties from: /Users/mradul/Downloads/apache-jmeter-3.0/bin/system.properties 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Version 3.0 r1743807 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: java.version=1.8.0_66 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: os.name=Mac OS X 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: os.arch=x86_64 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: os.version=10.11.6 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Max memory     =514850816 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Available Processors =8 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Default Locale=English (United States) 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: JMeter  Locale=English (United States) 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: JMeterHome=/Users/mradul/Downloads/apache-jmeter-3.0 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: user.dir  =/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: PWD       =/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: IP: 192.168.12.189 Name: trevor-jones.vistauk.vistacomp.com FullName: trevor-jones.vistauk.vistacomp.com 
+2016/08/11 17:39:25 INFO  - jmeter.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP-Ecomm/dashboard' 
+2016/08/11 17:39:25 INFO  - jmeter.report.dashboard.ReportGenerator: ReportGenerator will use for Parsing the separator:',' 
+2016/08/11 17:39:25 INFO  - jmeter.report.dashboard.ReportGenerator: Will only generate report from results file:/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP-Ecomm.jtl 
+2016/08/11 17:39:25 INFO  - jmeter.report.dashboard.ReportGenerator: Reading report generator properties from:/Users/mradul/Downloads/apache-jmeter-3.0/bin/reportgenerator.properties 
+2016/08/11 17:39:25 INFO  - jmeter.report.dashboard.ReportGenerator: Merging with JMeter properties 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.temp_dir" not found, using default value "temp" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.apdex_satisfied_threshold" not found, using default value "500" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.apdex_tolerated_threshold" not found, using default value "1500" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.sample_filter" not found, using default value "null" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimePercentiles.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimesOverTime.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.bytesThroughputOverTime.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.activeThreadsOverTime.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.timeVsThreads.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.responseTimeDistribution.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.latenciesOverTime.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.graph.transactionsPerSecond.exclude_controllers" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.filters_only_sample_series" not found, using default value "true" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.series_filter" not found, using default value "" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.config.ReportGeneratorConfiguration: Property "jmeter.reportgenerator.exporter.html.show_controllers_only" not found, using default value "false" instead. 
+2016/08/11 17:39:25 INFO  - jmeter.report.processor.NormalizerSampleConsumer: Using format:ms to parse timeStamp field 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): beginDate produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): endDate produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ApdexSummaryConsumer#stopProducing(): apdexSummary produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.RequestsSummaryConsumer#stopProducing(): requestsSummary produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.StatisticsSummaryConsumer#stopProducing(): statisticsSummary produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ErrorsSummaryConsumer#stopProducing(): errorsSummary produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer#stopProducing(): latencyVsRequest produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer#stopProducing(): hitsPerSecond produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer#stopProducing(): codesPerSecond produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer#stopProducing(): responseTimeVsRequest produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): startIntervalControlerFilter produced 800 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer#stopProducing(): responseTimePercentiles produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer#stopProducing(): responseTimesOverTime produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer#stopProducing(): bytesThroughputOverTime produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer#stopProducing(): activeThreadsOverTime produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer#stopProducing(): timeVsThreads produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer#stopProducing(): responseTimeDistribution produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer#stopProducing(): latenciesOverTime produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer#stopProducing(): transactionsPerSecond produced 0 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): nameFilter produced 1920 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.AbstractSampleConsumer: class org.apache.jmeter.report.processor.NormalizerSampleConsumer#stopProducing(): normalizer produced 480 samples 
+2016/08/11 17:39:25 INFO  - org.apache.jmeter.report.processor.CsvFileSampleSource: produce(): 160 samples produced in 150ms on channel 0 
+2016/08/11 17:39:25 INFO  - jmeter.report.dashboard.ReportGenerator: Exporting data using exporter:'html' of className:'org.apache.jmeter.report.dashboard.HtmlTemplateExporter' 
+2016/08/11 17:39:25 INFO  - jmeter.report.dashboard.HtmlTemplateExporter: Will generate dashboard in folder:/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP-Ecomm/dashboard 
+2016/08/11 17:39:26 INFO  - jmeter.report.dashboard.HtmlTemplateExporter: Report will be generated in:/Users/mradul/Projects/PublishingTechnology/blackjack/iworkspace/jmeter/target/jmeter/results/AIP-Ecomm/dashboard, creating folder structure 
